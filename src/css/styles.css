@@ -60,6 +60,7 @@ input {
   letter-spacing: 0.04em;
   color: #2e2f42;
 }
+
 input::placeholder {
   font-weight: 400;
   font-size: 16px;
@@ -71,6 +72,7 @@ input::placeholder {
 input:hover {
   border: 1px solid #000;
 }
+
 input:focus {
   border: 1px solid #4e75ff;
 }
@@ -81,7 +83,6 @@ button {
   width: 91px;
   height: 40px;
   background-color: #4e75ff;
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
@@ -94,33 +95,6 @@ button {
 button:hover,
 button:focus {
   background-color: #6c8cff;
-}
-
-.loader {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.loader.visible {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  padding: 0;
-
-  white-space: normal;
-  clip-path: none;
-  clip: auto;
-  overflow: visible;
 }
 
 .gallery {
@@ -186,7 +160,12 @@ button:focus {
   color: #2e2f42;
 }
 
+/* Loader wrapper полностью убран из потока, пока нет класса visible */
 .loader-wrapper {
+  display: none;
+}
+
+.loader-wrapper.visible {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -204,6 +183,7 @@ button:focus {
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
 }
+
 .loader::after {
   content: '';
   box-sizing: border-box;
@@ -226,15 +206,38 @@ button:focus {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 @keyframes rotationBack {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(-360deg);
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.load-more {
+  display: block;
+  margin: 32px auto 0;
+  width: 125px;
 }
