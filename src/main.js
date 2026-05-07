@@ -111,13 +111,13 @@ async function fetchData() {
 }
 
 function scroll() {
-  const galleryWrapper = document.querySelector('.gallery-wrapper')
-  if (!galleryWrapper) {
+  const galleryItem = document.querySelector('.gallery-item')
+  if (!galleryItem) {
     return
   }
-  const height = galleryWrapper.getBoundingClientRect().height
+  const height = galleryItem.getBoundingClientRect().height
   window.scrollBy({
-    top: 2 * height,
+    top: height * 2,
     behavior: 'smooth'
   })
 }
