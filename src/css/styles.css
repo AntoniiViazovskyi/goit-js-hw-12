@@ -160,7 +160,6 @@ button:focus {
   color: #2e2f42;
 }
 
-/* Loader wrapper полностью убран из потока, пока нет класса visible */
 .loader-wrapper {
   display: none;
 }

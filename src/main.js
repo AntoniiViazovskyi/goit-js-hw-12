@@ -26,6 +26,7 @@ let keyword
 
 form.addEventListener('submit', handleSubmit)
 loadMoreBtn.addEventListener('click', async () => {
+  hideLoadMoreButton()
   page += 1
   const isSuccess = await fetchData()
   if (isSuccess) {
